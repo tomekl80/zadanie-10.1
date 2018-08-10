@@ -1,9 +1,17 @@
 * { box-sizing: border-box; border: .5px; }
 
-.container { width: 1200px; height: 250px; color: white; text-shadow: 1px black; text-align: center; }
+.container { width: 1200px; height: auto; border: 1px solid white; border-radius: 5px; color: white; text-align: center; font-size: 48px; font-weight: bold; }
 
-.carousel-cell { width: 100%; height: 50vw; min-height: 250px; background-size: cover; text-overflow: ellipsis; word-wrap: break-word; }
+.container a { text-decoration: none; }
+
+.container p { color: white; text-transform: uppercase; text-shadow: 2px 2px black; }
+
+.carousel-cell { display: flex; flex-direction: row; justify-content: space-around; align-items: center; width: 100%; height: 50vw; min-height: 250px; background-size: cover; text-overflow: ellipsis; word-wrap: break-word; }
 
 .main-carousel img { width: 100%; height: auto; }
 
 .flickity-page-dots { display: none; }
+
+.button { position: absolute; padding: 10px 25px; text-transform: uppercase; right: 0; font-weight: bold; transition: .5s; }
+
+.button:hover { background-color: light-blue; font-weight: bold; color: blue; }
