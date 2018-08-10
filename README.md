@@ -1,3 +1,3 @@
 "WELCOME :)"
 
-This is my carousel design project. Plese see how it looks :).
+This is my carousel design project. Please see how it looks :).
