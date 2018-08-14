@@ -1,56 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Zadanie-10.1 - Korzystanie z pluginów - Podłączenie karuzeli Flickity</title>
-	<link rel="stylesheet" type="text/css" href="vendor/normalize.css">
-	<link rel="stylesheet" type="text/css" href="vendor/flickity.min.css" media="screen">
-	<link rel="stylesheet" type="text/css" href="css/style.prefixed.css">
-</head>
-<body>
-	<!-- Main section of carousel -->
-	<div class="main-carousel">
-		<div class="carousel-cell" id="carousel-cell1" style="background-image: url('images/001-norway.jpg')">
-			<div class="container">
-				<a href="#carousel-cell1"><p>View from Volandstinden in Lofoten Norway</p></a>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Zadanie-10.1 - Korzystanie z pluginów - Podłączenie karuzeli Flickity</title>
+		<link rel="stylesheet" type="text/css" href="vendor/normalize.css">
+		<link rel="stylesheet" type="text/css" href="vendor/flickity.min.css" media="screen">
+		<link rel="stylesheet" type="text/css" href="css/style.prefixed.css">
+	</head>
+	<body>
+		<!-- Main section of carousel -->
+		<div class="main-carousel">
+			<div class="carousel-cell" id="carousel-cell1" style="background-image: url('images/001-norway.jpg')">
+				<div class="container">
+					<h2> {{ title }} </h2><br>
+					{{{ decription }}}
+					<!-- <a href="#carousel-cell1"><p>View from Volandstinden in Lofoten Norway</p></a> -->
+				</div>
+			</div>
+			<div class="carousel-cell" id="carousel-cell2" style="background-image: url('images/002-germany.jpg')">
+				<div class="container">
+					<a href="#carousel-cell2"><p>Neuschwanstein Castle Schwangau Germany</p></a>
+				</div>
+			</div>
+			<div class="carousel-cell" id="carousel-cell3" style="background-image: url('images/003-newyork.jpg')">
+				<div class="container">
+					<a href="#carousel-cell3"><p>Hoboken, United States</p></a>
+				</div>
+			</div>
+			<div class="carousel-cell" id="carousel-cell4" style="background-image: url('images/004-moscow.jpg')">
+				<div class="container">
+					<a href="#carousel-cell4"><p>Moscow, Russia</p></a>
+				</div>
+			</div>
+			<div class="carousel-cell" id="carousel-cell5" style="background-image: url('images/005-poland.jpg')">
+				<div class="container">
+					<a href="#carousel-cell5"><p>Bacówka PTTK na Rycerzowej sunset</p></a>
+				</div>
 			</div>
 		</div>
-		<div class="carousel-cell" id="carousel-cell2" style="background-image: url('images/002-germany.jpg')">
-			<div class="container">
-				<a href="#carousel-cell2"><p>Neuschwanstein Castle Schwangau Germany</p></a>
-			</div>
+		<!-- End section of carousel -->
+		<!-- Start progress bar -->
+		<div class="progress-bar"></div>
+		<!-- End progress bar -->
+		<!-- Main section of content -->
+		<div class="button-group">
+			<button class="button">Home</button>
 		</div>
-		<div class="carousel-cell" id="carousel-cell3" style="background-image: url('images/003-newyork.jpg')">
-			<div class="container">
-				<a href="#carousel-cell3"><p>Hoboken, United States</p></a>
-			</div>
-		</div>
-		<div class="carousel-cell" id="carousel-cell4" style="background-image: url('images/004-moscow.jpg')">
-			<div class="container">
-				<a href="#carousel-cell4"><p>Moscow, Russia</p></a>
-			</div>
-		</div>
-		<div class="carousel-cell" id="carousel-cell5" style="background-image: url('images/005-poland.jpg')">
-			<div class="container">
-				<a href="#carousel-cell5"><p>Bacówka PTTK na Rycerzowej sunset</p></a>
-			</div>
-		</div>
-	</div>
-	<!-- End section of carousel -->
+		<!-- Scripts -->
+		<script src="js/flickity.pkgd.min.js"></script>
+		<script src="js/hash.js"></script>
+		<!-- Start - Mustache -->
+		<script id="template" type="x-tmpl-mustache"></script>
+		
+		<script>
+			var carouselSlides = [
+			{
+				image: 'images/001-norway.jpg',
+				title: 'Norway',
+				description: '<p>Norway</p><img src="images/001-norway.jpg" alt="View from Volandstinden in Lofoten Norway"><p>View from Volandstinden in Lofoten Norway</p>'
+			},
+			{
+				image: 'images/002-germany.jpg',
+				title: 'Germany',
+				description: '<p>Germany</p><img src="002-germany.jpg" alt="Neuschwanstein Castle Schwangau Germany"><p>Neuschwanstein Castle Schwangau Germany</p>'
+			},
+			{
+				image: 'images/003-newyork.jpg',
+				title: 'New York',
+				description: '<p>New York</p><img ="images/003-newyork.jpg" alt="Hoboken, United States"><p>Hoboken, United States</p>'
+			},
+			{
+				image: 'images/004-moscow.jpg',
+				title: "Moscow",
+				description: '<p>Moscow, Russia</p><img src="images/004-moscow.jpg" alt="Moscow, Russia"><p>Moscow, Russia</p>'
+			},
+			{
+				image: 'images/005-poland.jpg',
+				title: 'Poland',
+				description: '<p>Poland</p><img src="images/005-poland.jpg" alt="Bacówka PTTK na Rycerzowej sunset"><p>Bacówka PTTK na Rycerzowej sunset</p>'
+			}
+			];
+		</script>
 
-	<!-- Start progress bar -->
-	<div class="progress-bar"></div>
-	<!-- End progress bar -->
-
-	<!-- Main section of content -->
-	<div class="button-group">
-		<button class="button">Home</button>
-	</div>
-
-	<!-- Scripts -->
-	<script src="js/flickity.pkgd.min.js"></script>
-	<script src="js/hash.js"></script>
-	<script src="js/script.js"></script>
-</body>
+		<script src="js/script.js"></script>
+	</body>
 </html>
