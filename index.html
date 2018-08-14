@@ -11,50 +11,63 @@
 	<body>
 		<!-- Main section of carousel -->
 		<div class="main-carousel">
-			<div class="carousel-cell" id="carousel-cell1" style="background-image: url('images/001-norway.jpg')">
-				<div class="container">
-					<h2> {{ title }} </h2><br>
-					{{{ decription }}}
-					<!-- <a href="#carousel-cell1"><p>View from Volandstinden in Lofoten Norway</p></a> -->
+			<div class="carousel-cell" id="carousel-cell1">
+				<div class="container view-slides">
+					
+					<a href="#carousel-cell1"><!-- <p>View from Volandstinden in Lofoten Norway</p> --></a>
 				</div>
 			</div>
-			<div class="carousel-cell" id="carousel-cell2" style="background-image: url('images/002-germany.jpg')">
-				<div class="container">
-					<a href="#carousel-cell2"><p>Neuschwanstein Castle Schwangau Germany</p></a>
+			<div class="carousel-cell" id="carousel-cell2">
+				<div class="container view-slides">
+					
+					<a href="#carousel-cell2"><!-- <p>Neuschwanstein Castle Schwangau Germany</p> --></a>
 				</div>
 			</div>
-			<div class="carousel-cell" id="carousel-cell3" style="background-image: url('images/003-newyork.jpg')">
-				<div class="container">
-					<a href="#carousel-cell3"><p>Hoboken, United States</p></a>
+			<div class="carousel-cell" id="carousel-cell3">
+				<div class="container view-slides">
+					
+					<a href="#carousel-cell3"><!-- <p>Hoboken, United States</p> --></a>
 				</div>
 			</div>
-			<div class="carousel-cell" id="carousel-cell4" style="background-image: url('images/004-moscow.jpg')">
-				<div class="container">
-					<a href="#carousel-cell4"><p>Moscow, Russia</p></a>
+			<div class="carousel-cell" id="carousel-cell4">
+				<div class="container view-slides">
+					
+					<a href="#carousel-cell4"><!-- <p>Moscow, Russia</p> --></a>
 				</div>
 			</div>
-			<div class="carousel-cell" id="carousel-cell5" style="background-image: url('images/005-poland.jpg')">
-				<div class="container">
-					<a href="#carousel-cell5"><p>Bacówka PTTK na Rycerzowej sunset</p></a>
+			<div class="carousel-cell" id="carousel-cell5">
+				<div id="slidesCarousel" class="container view-slides">
+					
+					<a href="#carousel-cell5"><!-- <p>Bacówka PTTK na Rycerzowej sunset</p> --></a>
 				</div>
 			</div>
 		</div>
 		<!-- End section of carousel -->
+		
 		<!-- Start progress bar -->
 		<div class="progress-bar"></div>
 		<!-- End progress bar -->
+		
 		<!-- Main section of content -->
 		<div class="button-group">
 			<button class="button">Home</button>
 		</div>
-		<!-- Scripts -->
-		<script src="js/flickity.pkgd.min.js"></script>
-		<script src="js/hash.js"></script>
-		<!-- Start - Mustache -->
-		<script id="template" type="x-tmpl-mustache"></script>
 		
-		<script>
-			var carouselSlides = [
+		<!-- Mustache Scripts -->
+		<script src="js/mustache.js" type="text/javascript"></script>
+		
+		<script id="template-slides-list" type="x-tmpl-mustache">
+			<ul>
+				{{{ slides }}}
+			</ul>
+		</script>
+
+		<script id="template-slides-items" type="x-tmpl-mustache">
+			<li>{{ title }} {{{ description }}}</li>
+		</script>
+		
+		<script type="text/javascript">
+			var slidesData = [
 			{
 				image: 'images/001-norway.jpg',
 				title: 'Norway',
@@ -83,6 +96,11 @@
 			];
 		</script>
 
-		<script src="js/script.js"></script>
+		<script src="js/flickity.pkgd.min.js" type="text/javascript"></script>
+		<script src="js/hash.js" type="text/javascript"></script>
+				
+		
+		
+		<script src="js/script.js" type="text/javascript"></script>
 	</body>
 </html>

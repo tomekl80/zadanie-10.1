@@ -33,3 +33,22 @@ var progressBar = document.querySelector('.progress-bar');
 		progress = Math.max(0, Math.min(1, progress));
 		progressBar.style.width = progress * 100 + '%';
 	});
+
+// Mustache slides section
+
+var templateSlideList = document.getElementById('template-slides-list').innerHTML;
+
+var templateSlidesItems = document.getElementById('template-slides-items').innerHTML;
+
+			Mustache.parse(templateSlidesItems);
+
+			var listItems = '';
+
+			for (var i = 0; i < slidesData.length; i++) {
+				console.log(slidesData);
+				listItems += Mustache.render(templateSlidesItems, slidesData[i]);
+			}
+
+			var fullSlidesList = Mustache.render(templateSlideList, {slides: listItems});
+
+			view-slides.insertAdjacentHTML('beforeend', fullSlidesList);
