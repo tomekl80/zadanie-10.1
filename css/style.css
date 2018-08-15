@@ -15,3 +15,7 @@
 .button { position: absolute; padding: 10px 25px; text-transform: uppercase; right: 0; font-weight: bold; transition: .5s; }
 
 .button:hover { background-color: light-blue; font-weight: bold; color: blue; }
+
+#map { height: 400px; width: 100%; }
+
+.maps { max-width: 400px; margin: 0 auto; }
