@@ -51,7 +51,7 @@ var templateSlidesItems = document.getElementById('template-slides-items').inner
 
 			var fullSlidesList = Mustache.render(templateSlideList, {slides: listItems});
 
-			var view = document.querySelectorAll('.view');
+			var view = document.querySelector('.view');
 
 			view.insertAdjacentHTML('beforeend', fullSlidesList);
 
