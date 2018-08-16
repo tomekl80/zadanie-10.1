@@ -10,14 +10,7 @@
 	</head>
 	<body>
 		<!-- Main section of carousel -->
-		<div class="main-carousel">
-			<div class="carousel-cell" id="carousel-cell1">
-				<div class="container view">
-					
-					<a href="#carousel-cell1"></a>
-				</div>
-			</div>
-		</div>
+		<div id="carousel" class="main-carousel view"></div>
 		<!-- End section of carousel -->
 		
 		<!-- Start progress bar -->
@@ -36,13 +29,12 @@
 		</div>
 		<!-- Mustache Scripts -->
 		
-		<script id="template-slides-list" type="x-tmpl-mustache">
-			<ul>
-					{{{ slides }}}
-			</ul>
-		</script>
 		<script id="template-slides-items" type="x-tmpl-mustache">
-			<li>{{ title }} {{{ description }}}</li>
+			<div class="carousel-cell">
+				<h2>{{ title }}</h2>
+				<img src={{ image }} alt={{ description }}>
+				<p>{{ description }}</p>
+			</div>
 		</script>
 		
 		<script type="text/javascript">
@@ -50,27 +42,27 @@
 			{
 				image: 'images/001-norway.jpg',
 				title: 'Norway',
-				description: '<p>Norway</p><img src="images/001-norway.jpg" alt="View from Volandstinden in Lofoten Norway"><p>View from Volandstinden in Lofoten Norway</p>'
+				description: 'View from Volandstinden in Lofoten Norway'
 			},
 			{
 				image: 'images/002-germany.jpg',
 				title: 'Germany',
-				description: '<p>Germany</p><img src="images/002-germany.jpg" alt="Neuschwanstein Castle Schwangau Germany"><p>Neuschwanstein Castle Schwangau Germany</p>'
+				description: 'Neuschwanstein Castle Schwangau Germany'
 			},
 			{
 				image: 'images/003-newyork.jpg',
 				title: 'New York',
-				description: '<p>New York</p><img ="images/003-newyork.jpg" alt="Hoboken, United States"><p>Hoboken, United States</p>'
+				description: 'Hoboken, United States'
 			},
 			{
 				image: 'images/004-moscow.jpg',
 				title: "Moscow",
-				description: '<p>Moscow, Russia</p><img src="images/004-moscow.jpg" alt="Moscow, Russia"><p>Moscow, Russia</p>'
+				description: 'Moscow, Russia'
 			},
 			{
 				image: 'images/005-poland.jpg',
 				title: 'Poland',
-				description: '<p>Poland</p><img src="images/005-poland.jpg" alt="Bacówka PTTK na Rycerzowej sunset"><p>Bacówka PTTK na Rycerzowej sunset</p>'
+				description: 'Bacówka PTTK na Rycerzowej sunset'
 			}
 			];
 		</script>

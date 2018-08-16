@@ -1,8 +1,18 @@
 'use scrict';
 
 // Main section of carousel
+var templateSlidesItems = document.getElementById('template-slides-items').innerHTML;
+var listItems = '';
+var view = document.getElementById('carousel');
 var elem = document.querySelector('.main-carousel');
 
+Mustache.parse(templateSlidesItems);
+
+	for (var i = 0; i < slidesData.length; i++) {
+		listItems += Mustache.render(templateSlidesItems, slidesData[i]);
+	}
+
+view.innerHTML = listItems;
 var flkty = new Flickity(elem, {
 	cellAlign: 'left',
 	contain: true,
@@ -34,28 +44,7 @@ var progressBar = document.querySelector('.progress-bar');
 		progressBar.style.width = progress * 100 + '%';
 	});
 
-// Mustache slides section
 
-var templateSlideList = document.getElementById('template-slides-list').innerHTML;
-
-var templateSlidesItems = document.getElementById('template-slides-items').innerHTML;
-
-			Mustache.parse(templateSlidesItems);
-
-			var listItems = '';
-
-			for (var i = 0; i < slidesData.length; i++) {
-				console.log(slidesData);
-				listItems += Mustache.render(templateSlidesItems, slidesData[i]);
-			}
-
-			var fullSlidesList = Mustache.render(templateSlideList, {slides: listItems});
-
-			var view = document.querySelector('.view');
-
-			view.insertAdjacentHTML('beforeend', fullSlidesList);
-
- 
 // Definujemy funkcję initMap w zakresie globalnym (czyli jako właściwość obiektu window).
 window.initMap = function() {
 	
