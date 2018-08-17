@@ -33,6 +33,7 @@
 	word-wrap: break-word;
 }
 .main-carousel img {
+	position: relative;
 	width: 100%;
 	height: auto;
 }
@@ -57,6 +58,23 @@
 	width: 100%;
 }
 .maps {
-	max-width: 400px;
+	width: auto;
+	max-height: 1200px;
 	margin: 0 auto;
+}
+.maps > p button {
+	padding: 10px 25px;
+	text-transform: uppercase;
+	font-weight: bold;
+	border-radius: 10px;
+}
+.carousel-cell div {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%) translateX(-50%);
+	left: 50%;
+}
+.infos {
+	color: black;
+	text-align: center;
 }

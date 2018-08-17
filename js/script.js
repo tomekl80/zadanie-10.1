@@ -46,10 +46,17 @@ var progressBar = document.querySelector('.progress-bar');
 
 
 // Definujemy funkcję initMap w zakresie globalnym (czyli jako właściwość obiektu window).
+	
+var infos = document.getElementById('infos');
+
 window.initMap = function() {
 	
 	// Zapisujemy w zmiennej obiekt zawierający współrzędne geograficzne.
-	var uluru = {lat: -25.363, lng: 131.044};
+	var uluru = {lat: 68.053, lng: 13.241};
+	var coords2 = {lat: 47.558, lng: 10.750};
+	var coords3 = {lat: 40.746, lng: -74.032};
+	var coords4 = {lat: 55.762, lng: 37.615};
+	var coords5 = {lat: 49.419, lng: 19.097};
 	
 	// W zmiennej map zapisujemy nową instancję obiektu Map. 
 	var map = new google.maps.Map(document.getElementById('map'), {
@@ -59,9 +66,55 @@ window.initMap = function() {
 	});
 	
 	// Definiujemy marker jako nową instancję obiektu Marker.
-	var marker = new google.maps.Marker({
+	var markerOne = new google.maps.Marker({
 		// I podajemy opcje tego markera, np. na której mapie ma być dodany oraz jakie są jego współrzędne. 
 		position: uluru,
 		map: map
-	}); 
+	});
+
+		markerOne.addListener('click', function(){
+			infos.innerHTML = 'You clicked markerOne - "View from Volandstinden in Lofoten Norway"';
+		});
+
+	var markerTwo = new google.maps.Marker({
+		position: coords2,
+		map: map
+	});
+
+		markerTwo.addListener('click', function(){
+			infos.innerHTML = 'You clicked markerTwo - "Neuschwanstein Castle Schwangau Germany"';
+		});
+
+	var markerThree = new google.maps.Marker({
+		position: coords3,
+		map: map
+	});
+
+		markerThree.addListener('click', function(){
+			infos.innerHTML = 'You clicked markerThree - "Hoboken, United States"';
+		});
+
+	var markerFour = new google.maps.Marker({
+		position: coords4,
+		map: map
+	});
+
+		markerFour.addListener('click', function(){
+			infos.innerHTML = 'You clicked markerFour - "Moscow, Russia"';
+		});
+
+	var markerFive = new google.maps.Marker({
+		position: coords5,
+		map: map
+	});
+
+		markerFive.addListener('click', function(){
+			infos.innerHTML = 'You clicked markerFive - "Bacówka PTTK na Rycerzowej sunset"';
+		});
+
+	document.getElementById('center-map').addEventListener('click', function(event){
+		event.preventDefault();
+		map.panTo(uluru);
+		map.setZoom(10);
+	})
 }

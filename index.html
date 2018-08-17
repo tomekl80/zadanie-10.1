@@ -25,15 +25,22 @@
 		<!-- Google Maps -->
 		<div class="maps">
 			<h3>My Google Maps Training</h3>
+			<p>
+				<button id="center-map">Center map</button>
+				<button id="center-smooth">Center smoothly</button>
+			</p>
+			<p id="infos"></p>
 			<div id="map"></div>
 		</div>
 		<!-- Mustache Scripts -->
 		
 		<script id="template-slides-items" type="x-tmpl-mustache">
-			<div class="carousel-cell">
-				<h2>{{ title }}</h2>
+			<div class="carousel-cell container">
 				<img src={{ image }} alt={{ description }}>
-				<p>{{ description }}</p>
+				<div>
+					<h2>{{ title }}</h2>
+					<p>{{ description }}</p>
+				</div>
 			</div>
 		</script>
 		
@@ -42,27 +49,32 @@
 			{
 				image: 'images/001-norway.jpg',
 				title: 'Norway',
-				description: 'View from Volandstinden in Lofoten Norway'
+				description: 'View from Volandstinden in Lofoten Norway',
+				coords: {lat: 68.053, lng: 13.241}
 			},
 			{
 				image: 'images/002-germany.jpg',
 				title: 'Germany',
-				description: 'Neuschwanstein Castle Schwangau Germany'
+				description: 'Neuschwanstein Castle Schwangau Germany',
+				coords: {lat: 47.558, lng: 10.750}
 			},
 			{
 				image: 'images/003-newyork.jpg',
 				title: 'New York',
-				description: 'Hoboken, United States'
+				description: 'Hoboken, United States',
+				coords: {lat: 40.746, lng: -74.032}
 			},
 			{
 				image: 'images/004-moscow.jpg',
 				title: "Moscow",
-				description: 'Moscow, Russia'
+				description: 'Moscow, Russia',
+				coords: {lat: 55.762, lng: 37.615}
 			},
 			{
 				image: 'images/005-poland.jpg',
 				title: 'Poland',
-				description: 'Bacówka PTTK na Rycerzowej sunset'
+				description: 'Bacówka PTTK na Rycerzowej sunset',
+				coords: {lat: 49.419, lng: 19.097}
 			}
 			];
 		</script>
@@ -71,6 +83,6 @@
 		<script src="js/mustache.js" type="text/javascript"></script>
 		<script src="js/script.js" type="text/javascript"></script>
 
-		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBGg7aVJ7I6dlJN8a6TE3H6OzwSH712Saw&callback=initMap"></script>
+		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHo1uxPxBDoZYgbk7mOfuk4OQtIIrKSZ4&callback=initMap"></script>
 	</body>
 </html>
