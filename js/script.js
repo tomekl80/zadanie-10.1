@@ -65,7 +65,7 @@ window.initMap = function() {
 		center: uluru
 	});
 	
-	// Definiujemy marker jako nową instancję obiektu Marker.
+	/*// Definiujemy marker jako nową instancję obiektu Marker.
 	var markerOne = new google.maps.Marker({
 		// I podajemy opcje tego markera, np. na której mapie ma być dodany oraz jakie są jego współrzędne. 
 		position: uluru,
@@ -110,11 +110,23 @@ window.initMap = function() {
 
 		markerFive.addListener('click', function(){
 			infos.innerHTML = 'You clicked markerFive - "Bacówka PTTK na Rycerzowej sunset"';
-		});
+		});*/
 
 	document.getElementById('center-map').addEventListener('click', function(event){
 		event.preventDefault();
 		map.panTo(uluru);
 		map.setZoom(10);
 	})
+
+	// Loop creating marker for every coords
+
+	for (var i = 0; i < slidesData.length; i++) {
+		var marker = new google.maps.Marker({
+			position: slidesData[3],
+			map: map
+		});
+			marker.addListener('click', function(){
+				infos.innerHTML = 'You clicked - ' + slidesData[2];
+			});
+	}
 }
