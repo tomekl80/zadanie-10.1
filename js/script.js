@@ -79,8 +79,11 @@ window.initMap = function() {
 			position: slidesData[i].coords,
 			map: map
 		});
+		return (function(i){
 			marker.addListener('click', function(event){
-				infos.innerHTML = 'You clicked - marker';
-				
-			}
-		}
+				flkty.select(i);
+			});
+		})(i);
+			
+	}
+}
