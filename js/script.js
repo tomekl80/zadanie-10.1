@@ -65,53 +65,7 @@ window.initMap = function() {
 		center: uluru
 	});
 	
-	/*// Definiujemy marker jako nową instancję obiektu Marker.
-	var markerOne = new google.maps.Marker({
-		// I podajemy opcje tego markera, np. na której mapie ma być dodany oraz jakie są jego współrzędne. 
-		position: uluru,
-		map: map
-	});
-
-		markerOne.addListener('click', function(){
-			infos.innerHTML = 'You clicked markerOne - "View from Volandstinden in Lofoten Norway"';
-		});
-
-	var markerTwo = new google.maps.Marker({
-		position: coords2,
-		map: map
-	});
-
-		markerTwo.addListener('click', function(){
-			infos.innerHTML = 'You clicked markerTwo - "Neuschwanstein Castle Schwangau Germany"';
-		});
-
-	var markerThree = new google.maps.Marker({
-		position: coords3,
-		map: map
-	});
-
-		markerThree.addListener('click', function(){
-			infos.innerHTML = 'You clicked markerThree - "Hoboken, United States"';
-		});
-
-	var markerFour = new google.maps.Marker({
-		position: coords4,
-		map: map
-	});
-
-		markerFour.addListener('click', function(){
-			infos.innerHTML = 'You clicked markerFour - "Moscow, Russia"';
-		});
-
-	var markerFive = new google.maps.Marker({
-		position: coords5,
-		map: map
-	});
-
-		markerFive.addListener('click', function(){
-			infos.innerHTML = 'You clicked markerFive - "Bacówka PTTK na Rycerzowej sunset"';
-		});*/
-
+	
 	document.getElementById('center-map').addEventListener('click', function(event){
 		event.preventDefault();
 		map.panTo(uluru);
@@ -122,11 +76,11 @@ window.initMap = function() {
 
 	for (var i = 0; i < slidesData.length; i++) {
 		var marker = new google.maps.Marker({
-			position: slidesData[3],
+			position: slidesData[i].coords,
 			map: map
 		});
-			marker.addListener('click', function(){
-				infos.innerHTML = 'You clicked - ' + slidesData[2];
-			});
-	}
-}
+			marker.addListener('click', function(event){
+				infos.innerHTML = 'You clicked - marker';
+				
+			}
+		}
