@@ -25,3 +25,5 @@
 .carousel-cell div { position: absolute; top: 50%; transform: translateY(-50%) translateX(-50%); left: 50%; }
 
 .infos { color: black; text-align: center; }
+
+.progress-bar { height: 20px; width: 0; background: #999; }

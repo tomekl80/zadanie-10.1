@@ -79,7 +79,7 @@ window.initMap = function() {
 			position: slidesData[i].coords,
 			map: map
 		});
-		return (function(i){
+		(function(i){
 			marker.addListener('click', function(event){
 				flkty.select(i);
 			});
