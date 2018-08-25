@@ -67,9 +67,24 @@ window.initMap = function() {
 			position: slidesData[i].coords,
 			map: map
 		});
+		(function(i){
+			marker.addListener('click', function(event){
+			infos.innerHTML = 'You clicked - ' + slidesData[i].description;
+			flkty.select(i);
 
-		marker.addListener('click', function(event){
-			infos.innerHTML = 'You clicked - marker';	
+			
 		});
+		
+		flkty.on('change', function(i){
+				console.log('Flickity change ' + i);
+				console.log(i);
+				flkty.select(i);
+				map.panTo(slidesData[i].coords);
+				map.setZoom(10);
+		});
+		
+		})(i);
+		
+
 	}
 }
