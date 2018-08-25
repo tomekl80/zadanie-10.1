@@ -7,10 +7,9 @@ var view = document.getElementById('carousel');
 var elem = document.querySelector('.main-carousel');
 
 Mustache.parse(templateSlidesItems);
-
-	for (var i = 0; i < slidesData.length; i++) {
-		listItems += Mustache.render(templateSlidesItems, slidesData[i]);
-	}
+for (var i = 0; i < slidesData.length; i++) {
+	listItems += Mustache.render(templateSlidesItems, slidesData[i]);
+}
 
 view.innerHTML = listItems;
 var flkty = new Flickity(elem, {
@@ -31,6 +30,7 @@ buttonGroup.addEventListener( 'click', function( event ) {
   if ( !matchesSelector( event.target, '.button' ) ) {
     return;
   }
+
   var index = buttons.indexOf( event.target );
   flkty.select(0);
 });
@@ -44,36 +44,24 @@ var progressBar = document.querySelector('.progress-bar');
 		progressBar.style.width = progress * 100 + '%';
 	});
 
-
 // Definujemy funkcję initMap w zakresie globalnym (czyli jako właściwość obiektu window).
-	
 var infos = document.getElementById('infos');
 
 window.initMap = function() {
-	
-	// Zapisujemy w zmiennej obiekt zawierający współrzędne geograficzne.
-	var uluru = {lat: 68.053, lng: 13.241};
-	var coords2 = {lat: 47.558, lng: 10.750};
-	var coords3 = {lat: 40.746, lng: -74.032};
-	var coords4 = {lat: 55.762, lng: 37.615};
-	var coords5 = {lat: 49.419, lng: 19.097};
-	
 	// W zmiennej map zapisujemy nową instancję obiektu Map. 
 	var map = new google.maps.Map(document.getElementById('map'), {
 		// Podajemy opcje mapy, np. zoom i punkt wycentrowania mapy.
 		zoom: 4,
-		center: uluru
+		center: slidesData[0].coords
 	});
-	
 	
 	document.getElementById('center-map').addEventListener('click', function(event){
 		event.preventDefault();
-		map.panTo(uluru);
+		map.panTo(slidesData[0].coords);
 		map.setZoom(10);
 	})
 
 	// Loop creating marker for every coords
-
 	for (var i = 0; i < slidesData.length; i++) {
 		var marker = new google.maps.Marker({
 			position: slidesData[i].coords,
@@ -81,9 +69,22 @@ window.initMap = function() {
 		});
 		(function(i){
 			marker.addListener('click', function(event){
-				flkty.select(i);
-			});
-		})(i);
+			infos.innerHTML = 'You clicked - ' + slidesData[i].description;
+			flkty.select(i);
+
 			
+		});
+		
+		// Section responsible for centering the map
+		flkty.on('change', function(i){
+				console.log('Flickity change ' + i);
+				console.log(i);
+				flkty.select(i);
+				map.panTo(slidesData[i].coords);
+				map.setZoom(10);
+		});
+		
+		})(i);
+		
 	}
 }
